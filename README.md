@@ -42,6 +42,7 @@ With a little more granularity, a histogram will provide us with more insight as
 
 ![Screen Shot 2022-05-20 at 1 12 12 PM](https://user-images.githubusercontent.com/100544761/169588257-929f57f7-73a3-4057-bcac-0b98f666ed78.png)
 
+
 ## Flask
 
 Using Flask, with multiple routes available, we created an active API for reviewing and retrieving data results.
@@ -51,7 +52,16 @@ Using Flask, with multiple routes available, we created an active API for review
 ![Screen Shot 2022-05-20 at 12 29 56 PM](https://user-images.githubusercontent.com/100544761/169588678-bf080afd-6e59-4005-b96a-8ef1d28f9fdb.png)
 
 **Precipitation Averages**
-![Screen Shot 2022-05-20 at 12 46 00 PM](https://user-images.githubusercontent.com/100544761/169588796-05da36fa-ac14-4ba5-8cfc-2bda36f2b8bd.png)
+
+# define second route, precipitation
+    @app.route("/api/v1.0/precipitation")
+
+    def avg_daily_precipitation():
+        prev_year = dt.date(2017, 8, 23) - dt.timedelta(days=365)
+        precipitation = session.query(Measurement.date, func.round(func.avg(Measurement.prcp),2)).\
+            filter(Measurement.date > prev_year).group_by(Measurement.date).all()
+        precip = {date: prcp for date, prcp in precipitation}
+        return jsonify(precip)
 
 ![Screen Shot 2022-05-20 at 12 45 28 PM](https://user-images.githubusercontent.com/100544761/169588818-2227594f-ba6f-4c6e-b07a-37e6d422bf50.png)
 
@@ -66,8 +76,11 @@ Using Flask, with multiple routes available, we created an active API for review
 ![Screen Shot 2022-05-20 at 1 22 10 PM](https://user-images.githubusercontent.com/100544761/169589652-ac58918f-3df2-419f-a6f9-56df566eafe2.png)
 
 **Min, Max, Avg for starting/ending dates**
+
 Replace start/end with dates range
 ![Screen Shot 2022-05-20 at 1 22 57 PM](https://user-images.githubusercontent.com/100544761/169589811-c674a8e5-6dfc-45a9-8075-f4916a7f6ac1.png)
  
 ![Screen Shot 2022-05-20 at 1 24 17 PM](https://user-images.githubusercontent.com/100544761/169589975-eb4d5f7d-0506-4db6-9bcf-f1fc84f11aba.png)
 
+
+## Results
