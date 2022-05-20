@@ -35,17 +35,17 @@ Welcome to the Climate Analysis API!<br/>
 Available Routes:<br/>
 /api/v1.0/precipitation<br/>
 /api/v1.0/stations<br/>
-/api/v1.0/tobs<br/>
+/api/v1.0/tobs/USC00519281<br/>
 /api/v1.0/temp/start/end 
 ''')
 
 # define second route, precipitation
 @app.route("/api/v1.0/precipitation")
 
-def precipitation():
+def avg_daily_precipitation():
     prev_year = dt.date(2017, 8, 23) - dt.timedelta(days=365)
-    precipitation = session.query(Measurement.date, Measurement.prcp).\
-        filter(Measurement.date > prev_year).all()
+    precipitation = session.query(Measurement.date, func.round(func.avg(Measurement.prcp),2)).\
+        filter(Measurement.date > prev_year).group_by(Measurement.date).all()
     precip = {date: prcp for date, prcp in precipitation}
     return jsonify(precip)
 
@@ -61,7 +61,7 @@ def stations():
     return jsonify(stations=stations)
 
 # define fourth route, temp observations
-@app.route("/api/v1.0/tobs")
+@app.route("/api/v1.0/tobs/USC00519281")
 
 def temp_monthly():
     prev_year = dt.date(2017,8,23) - dt.timedelta(days=365)
