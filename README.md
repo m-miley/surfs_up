@@ -24,17 +24,17 @@ However, upon further investigation, we notice several reportings for each day.
 
 ![Screen Shot 2022-05-20 at 12 22 59 PM](https://user-images.githubusercontent.com/100544761/169586982-623f609e-33a1-438f-97a7-5b3983922d81.png)
 
-Furthermore, upon querying a count of distinct weather station ids, we note 9 existing stations, all actively reporting rainfall accumulation.  
+Furthermore, upon querying a count of distinct weather station ids, we note 9 existing stations, all actively reporting rainfall accumulation.  This accounts for the multiple records per day. 
 
 ![Screen Shot 2022-05-20 at 1 02 08 PM](https://user-images.githubusercontent.com/100544761/169587078-cd73b3f7-3754-4eba-8aeb-cca16279a203.png)
 
 ![Screen Shot 2022-05-20 at 1 05 32 PM](https://user-images.githubusercontent.com/100544761/169587310-4f8968c9-b6eb-49b9-9cdc-96038a9851de.png)
 
-Although there are varying counts of station reports per day, we can look at the average per day.  It's important we don't consider the sum of precipitatioin due to station count fluctuations.
+Although there are varying counts of station reports per day, we can look at the average precipitation per day.  It's important we don't consider the sum of precipitatioin due to daily record count inconsistencies.
 
 ![Screen Shot 2022-05-20 at 12 23 38 PM](https://user-images.githubusercontent.com/100544761/169587873-68e2d8fd-5fea-4596-a0ff-687641405f99.png)
 
-Next, we look at min, max, and average temperatures for the most active station 'USC00519281'.
+Next, we look at min, max, and average **temperatures** for the most active station 'USC00519281'.
 
 ![Screen Shot 2022-05-20 at 1 10 45 PM](https://user-images.githubusercontent.com/100544761/169588090-a4bf3eb2-25bc-4f91-a85a-f92a32fe125c.png)
 
@@ -70,7 +70,7 @@ With a little more granularity, a histogram will provide us with more insight ab
 
 ## Flask App
 
-Using Flask, with multiple routes available, an API calls and displays results of analysis.
+Using Flask, with multiple routes available, API calls are made and displays the results.
 
 **Welcome Page**
 
@@ -150,6 +150,7 @@ Using Flask, with multiple routes available, an API calls and displays results o
 
 ![Screen Shot 2022-05-20 at 2 29 30 PM](https://user-images.githubusercontent.com/100544761/169598598-612cb563-594d-4479-9d41-5d220e089d74.png)
 ![Screen Shot 2022-05-20 at 2 29 49 PM](https://user-images.githubusercontent.com/100544761/169598631-03e95b43-1b2d-415f-99a4-b87dc6ad2e3d.png)
+![Screen Shot 2022-05-20 at 2 57 45 PM](https://user-images.githubusercontent.com/100544761/169602140-45e73891-d7ae-423c-93c3-24721f24c8cd.png)
 
 - These two major weather observations are in conflict with each other.  One suggests good temperature range and stability which means potential for higher activity in the area.  The other suggests maybe it's not so sunny all that often.  Perhaps there's a bit more cloud cover than surfers and ice cream connaisseurs would prefer.
 
