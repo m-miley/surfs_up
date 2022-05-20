@@ -58,3 +58,15 @@ Using Flask, with multiple routes available, an API for reviewing and retrieving
 ![Screen Shot 2022-05-20 at 12 46 06 PM](https://user-images.githubusercontent.com/100544761/169588951-d1daa1d8-128a-4c97-bac8-9b267ed61d65.png)
 
 ![Screen Shot 2022-05-20 at 12 47 19 PM](https://user-images.githubusercontent.com/100544761/169588903-743a4f05-dfc6-4635-a8d7-5b509fead524.png)
+
+**One Year Temperatures for Most Active Station**
+![Screen Shot 2022-05-20 at 12 46 18 PM](https://user-images.githubusercontent.com/100544761/169589466-8f25f5b0-0ff0-4921-a632-2a9e3249f594.png)
+
+![Screen Shot 2022-05-20 at 1 22 10 PM](https://user-images.githubusercontent.com/100544761/169589652-ac58918f-3df2-419f-a6f9-56df566eafe2.png)
+
+**Min, Max, Avg for starting/ending dates**
+Replace start/end with dates range
+![Screen Shot 2022-05-20 at 1 22 57 PM](https://user-images.githubusercontent.com/100544761/169589811-c674a8e5-6dfc-45a9-8075-f4916a7f6ac1.png)
+ 
+![Screen Shot 2022-05-20 at 1 24 17 PM](https://user-images.githubusercontent.com/100544761/169589975-eb4d5f7d-0506-4db6-9bcf-f1fc84f11aba.png)
+
