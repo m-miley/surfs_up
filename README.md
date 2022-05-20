@@ -40,7 +40,32 @@ Next, we look at min, max, and average temperatures for the most active station 
 
 With a little more granularity, a histogram will provide us with more insight about frequency of reported temps.
 
-![Screen Shot 2022-05-20 at 1 12 12 PM](https://user-images.githubusercontent.com/100544761/169588257-929f57f7-73a3-4057-bcac-0b98f666ed78.png)
+    # Design a query to retrieve the last 12 months of precipitation data and plot the results. 
+    #Starting from the last data point in the database. 
+    prev_year = dt.date(2017,8,23)
+
+    # Calculate the date one year from the last date in data set.
+    prev_year = dt.date(2017,8,23) - dt.timedelta(days=365)
+
+    # Perform a query to retrieve the data and precipitation scores
+    results = list() #variable to store query
+    results = session.query(Measurement.date, Measurement.prcp).filter(Measurement.date >= prev_year)
+
+    # Save the query results as a Pandas DataFrame and set the index to the date column
+    df = pd.DataFrame(results, columns=['date','precipitation'])
+    df.set_index(df['date'], inplace=True)
+
+    # Sort the dataframe by date
+    df = df.sort_index()
+
+    # Use Pandas Plotting with Matplotlib to plot the data
+    df.plot()
+    plt.ylabel("Rainfall (inches)")
+    plt.xlabel("Date")
+    plt.title("Total Precipitation by Day")
+    plt.xticks(rotation=90)
+
+![Screen Shot 2022-05-20 at 1 40 41 PM](https://user-images.githubusercontent.com/100544761/169592160-74e980ab-6c01-429c-ad45-71cbe74fb04a.png)
 
 
 ## Flask
@@ -65,6 +90,7 @@ Using Flask, with multiple routes available, an API calls and displays results o
 ![Screen Shot 2022-05-20 at 12 45 28 PM](https://user-images.githubusercontent.com/100544761/169588818-2227594f-ba6f-4c6e-b07a-37e6d422bf50.png)
 
 **Stations**
+    
     @app.route("/api/v1.0/stations")
 
     def stations():
@@ -91,9 +117,8 @@ Using Flask, with multiple routes available, an API calls and displays results o
 
 ![Screen Shot 2022-05-20 at 1 22 10 PM](https://user-images.githubusercontent.com/100544761/169589652-ac58918f-3df2-419f-a6f9-56df566eafe2.png)
 
-**Min, Max, Avg for starting/ending dates**
+**Min, Max, Average for starting/ending date inputs**
 
-Replace start/end with dates range
     @app.route("/api/v1.0/temp/<start>")
     @app.route("/api/v1.0/temp/<start>/<end>")
     def stats(start=None, end=None):
