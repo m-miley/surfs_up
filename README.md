@@ -68,7 +68,7 @@ With a little more granularity, a histogram will provide us with more insight ab
 ![Screen Shot 2022-05-20 at 1 40 41 PM](https://user-images.githubusercontent.com/100544761/169592160-74e980ab-6c01-429c-ad45-71cbe74fb04a.png)
 
 
-## Flask
+## Flask App
 
 Using Flask, with multiple routes available, an API calls and displays results of analysis.
 
@@ -138,3 +138,29 @@ Using Flask, with multiple routes available, an API calls and displays results o
 
 
 ## Results
+
+- Temperature
+    - June and December have strikingly similar statistics which indicates that the temperature is fairly stable throughout the year without any major fluctuations as reflected in the mean, min, and max.  The results are favorable for investing.
+    - **June**
+        ![Screen Shot 2022-05-20 at 2 01 35 PM](https://user-images.githubusercontent.com/100544761/169594908-1c4f9a4f-031a-4fce-9029-556301047eb4.png)
+    
+    - **December**
+        ![Screen Shot 2022-05-20 at 2 01 43 PM](https://user-images.githubusercontent.com/100544761/169594949-14586331-0c52-4452-994c-c645de8e4e20.png)
+
+- Precipitation
+    - Both June and December have records reporting rainfall for most days of the month although small, half of the days being under a tenth of an inch.  75 percent of the days have around one one hundredth of an inch which could mean cloud cover.  
+
+![Screen Shot 2022-05-20 at 2 29 30 PM](https://user-images.githubusercontent.com/100544761/169598598-612cb563-594d-4479-9d41-5d220e089d74.png)
+![Screen Shot 2022-05-20 at 2 29 49 PM](https://user-images.githubusercontent.com/100544761/169598631-03e95b43-1b2d-415f-99a4-b87dc6ad2e3d.png)
+
+- These two major weather observations are in conflict with each other.  One suggests good temperature range and stability which means potential for higher activity in the area.  The other suggests maybe it's not so sunny all that often.  Perhaps there's a bit more cloud cover than surfers and ice cream connaisseurs would prefer.
+
+
+## Conclusion
+
+Depending on larger climate patterns indicating time of day, I suggest carefully considering temperature and rainfall in regards to an investment decision.  If rain is later in the day, maybe it's not a big deal.  If it's cloudy and drizzling all day, maybe this location is not so good for a surf and icecream shop.  An analysis digging deeper into these questions is definitely possible.  It would require a different data set as this one is without time stamp.  With time stamps and multiple reportings per day, one could analyze hourly reports.  Also, I would recommend looking into some foot traffic data including tourism and nearby towns and distances.  This would give us an idea for how many customers we could reach and translate into sales.  Furthermore, from a surfing perspective, it's important to look at tide and swell and the type of terrain near the beach.  It would be helpful to collect data on how many surfers visit this area on a daily basis.  
+
+
+### Contact
+
+Email: mrmileyy@gmail.com
