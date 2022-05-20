@@ -34,18 +34,18 @@ Although there are varying counts of station reports per day, we can look at the
 
 ![Screen Shot 2022-05-20 at 12 23 38 PM](https://user-images.githubusercontent.com/100544761/169587873-68e2d8fd-5fea-4596-a0ff-687641405f99.png)
 
-Next, we look at average temperatures for the most active station 'USC00519281'.
+Next, we look at min, max, and average temperatures for the most active station 'USC00519281'.
 
 ![Screen Shot 2022-05-20 at 1 10 45 PM](https://user-images.githubusercontent.com/100544761/169588090-a4bf3eb2-25bc-4f91-a85a-f92a32fe125c.png)
 
-With a little more granularity, a histogram will provide us with more insight as to frequency of reported temps.
+With a little more granularity, a histogram will provide us with more insight about frequency of reported temps.
 
 ![Screen Shot 2022-05-20 at 1 12 12 PM](https://user-images.githubusercontent.com/100544761/169588257-929f57f7-73a3-4057-bcac-0b98f666ed78.png)
 
 
 ## Flask
 
-Using Flask, with multiple routes available, we created an active API for reviewing and retrieving data results.
+Using Flask, with multiple routes available, an API calls and displays results of analysis.
 
 **Welcome Page**
 
@@ -53,7 +53,6 @@ Using Flask, with multiple routes available, we created an active API for review
 
 **Precipitation Averages**
 
-# define second route, precipitation
     @app.route("/api/v1.0/precipitation")
 
     def avg_daily_precipitation():
@@ -66,19 +65,49 @@ Using Flask, with multiple routes available, we created an active API for review
 ![Screen Shot 2022-05-20 at 12 45 28 PM](https://user-images.githubusercontent.com/100544761/169588818-2227594f-ba6f-4c6e-b07a-37e6d422bf50.png)
 
 **Stations**
-![Screen Shot 2022-05-20 at 12 46 06 PM](https://user-images.githubusercontent.com/100544761/169588951-d1daa1d8-128a-4c97-bac8-9b267ed61d65.png)
+    @app.route("/api/v1.0/stations")
+
+    def stations():
+        # get all stations
+        results = session.query(Station.station).all()
+        # unravel results into one-dim array
+        stations = list(np.ravel(results))
+        # jsonify and return
+        return jsonify(stations=stations)
 
 ![Screen Shot 2022-05-20 at 12 47 19 PM](https://user-images.githubusercontent.com/100544761/169588903-743a4f05-dfc6-4635-a8d7-5b509fead524.png)
 
 **One Year Temperatures for Most Active Station**
-![Screen Shot 2022-05-20 at 12 46 18 PM](https://user-images.githubusercontent.com/100544761/169589466-8f25f5b0-0ff0-4921-a632-2a9e3249f594.png)
+
+    @app.route("/api/v1.0/tobs/USC00519281")
+
+    def temp_monthly():
+        prev_year = dt.date(2017,8,23) - dt.timedelta(days=365)
+        results = session.query(Measurement.tobs).\
+            filter(Measurement.station == 'USC00519281').\
+            filter(Measurement.date >= prev_year).all()
+        temps = list(np.ravel(results))
+        return jsonify(temps=temps)
 
 ![Screen Shot 2022-05-20 at 1 22 10 PM](https://user-images.githubusercontent.com/100544761/169589652-ac58918f-3df2-419f-a6f9-56df566eafe2.png)
 
 **Min, Max, Avg for starting/ending dates**
 
 Replace start/end with dates range
-![Screen Shot 2022-05-20 at 1 22 57 PM](https://user-images.githubusercontent.com/100544761/169589811-c674a8e5-6dfc-45a9-8075-f4916a7f6ac1.png)
+    @app.route("/api/v1.0/temp/<start>")
+    @app.route("/api/v1.0/temp/<start>/<end>")
+    def stats(start=None, end=None):
+        sel = [func.min(Measurement.tobs), func.avg(Measurement.tobs), func.max(Measurement.tobs)]
+        if not end:
+            results = session.query(*sel).\
+                filter(Measurement.date >= start).all()
+            temps = list(np.ravel(results))
+            return jsonify(temps=temps)
+        results = session.query(*sel).\
+            filter(Measurement.date >= start).\
+            filter(Measurement.date <= end).all()
+        temps = list(np.ravel(results))
+        return jsonify(temps)
  
 ![Screen Shot 2022-05-20 at 1 24 17 PM](https://user-images.githubusercontent.com/100544761/169589975-eb4d5f7d-0506-4db6-9bcf-f1fc84f11aba.png)
 
