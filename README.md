@@ -141,11 +141,9 @@ Using Flask, with multiple routes available, an API calls and displays results o
 
 - Temperature
     - June and December have strikingly similar statistics which indicates that the temperature is fairly stable throughout the year without any major fluctuations as reflected in the mean, min, and max.  The results are favorable for investing.
-    - **June**
-        ![Screen Shot 2022-05-20 at 2 01 35 PM](https://user-images.githubusercontent.com/100544761/169594908-1c4f9a4f-031a-4fce-9029-556301047eb4.png)
-    
-    - **December**
-        ![Screen Shot 2022-05-20 at 2 01 43 PM](https://user-images.githubusercontent.com/100544761/169594949-14586331-0c52-4452-994c-c645de8e4e20.png)
+
+![Screen Shot 2022-05-20 at 2 44 57 PM](https://user-images.githubusercontent.com/100544761/169600575-538df777-accd-4129-984a-a794e074068d.png)
+![Screen Shot 2022-05-20 at 2 45 04 PM](https://user-images.githubusercontent.com/100544761/169600581-6a9186b1-e053-46e4-84c1-e1d6fbc1d030.png)
 
 - Precipitation
     - Both June and December have records reporting rainfall for most days of the month although small, half of the days being under a tenth of an inch.  75 percent of the days have around one one hundredth of an inch which could mean cloud cover.  
