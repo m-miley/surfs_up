@@ -44,9 +44,10 @@ With a little more granularity, a histogram will provide us with more insight as
 
 ## Flask
 
-Using Flask, with multiple routes available, an API for reviewing and retrieving data results is possible.
+Using Flask, with multiple routes available, we created an active API for reviewing and retrieving data results.
 
 **Welcome Page**
+
 ![Screen Shot 2022-05-20 at 12 29 56 PM](https://user-images.githubusercontent.com/100544761/169588678-bf080afd-6e59-4005-b96a-8ef1d28f9fdb.png)
 
 **Precipitation Averages**
