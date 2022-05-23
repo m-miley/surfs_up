@@ -142,13 +142,13 @@ Using Flask, with multiple routes available, API calls are made and displays the
 - Temperature
     - June and December have strikingly similar statistics which indicates that the temperature is fairly stable throughout the year without any major fluctuations as reflected in the mean, min, and max.  The results are favorable for investing.
 
-![Screen Shot 2022-05-20 at 2 44 57 PM](https://user-images.githubusercontent.com/100544761/169600575-538df777-accd-4129-984a-a794e074068d.png)
+![Screen Shot 2022-05-23 at 10 48 13 AM](https://user-images.githubusercontent.com/100544761/169858218-2f2ddbb9-6326-4911-9638-b047efc3c7ac.png)
 ![Screen Shot 2022-05-20 at 2 45 04 PM](https://user-images.githubusercontent.com/100544761/169600581-6a9186b1-e053-46e4-84c1-e1d6fbc1d030.png)
 
 - Precipitation
     - Both June and December have records reporting rainfall for most days of the month although small, half of the days being under a tenth of an inch.  75 percent of the days have around one one hundredth of an inch which could mean cloud cover.  
 
-![Screen Shot 2022-05-20 at 2 29 30 PM](https://user-images.githubusercontent.com/100544761/169598598-612cb563-594d-4479-9d41-5d220e089d74.png)
+![Screen Shot 2022-05-23 at 10 47 52 AM](https://user-images.githubusercontent.com/100544761/169858078-1480269f-895f-4c7f-b03e-1521ffe4b0c6.png)
 ![Screen Shot 2022-05-20 at 2 29 49 PM](https://user-images.githubusercontent.com/100544761/169598631-03e95b43-1b2d-415f-99a4-b87dc6ad2e3d.png)
 ![Screen Shot 2022-05-20 at 2 57 45 PM](https://user-images.githubusercontent.com/100544761/169602140-45e73891-d7ae-423c-93c3-24721f24c8cd.png)
 
